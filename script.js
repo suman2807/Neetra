@@ -89,6 +89,33 @@ imageInputContainer.addEventListener('click', (e) => {
     }
 });
 
+/**
+     * Analyzes an image based on the specified infrastructure type and returns
+     * details about the construction activity, stage of construction, and
+     * percentage of completion.
+     *
+     * @param {Object} image - The image object to be analyzed.
+     * @param {string} infrastructureType - The type of infrastructure being analyzed.
+     *        This should be one of the following: "foundation", "super-structure",
+     *        "facade", or "interiors".
+     *
+     * @returns {Object} An object containing the following properties:
+     *   - constructionActivity: The type of construction activity.
+     *   - stageOfConstruction: The current stage of construction.
+     *   - percentageOfCompletion: A number representing the percentage of completion
+     *     based on the infrastructure type.
+     *
+     * @throws {Error} Throws an error if the infrastructureType is not recognized.
+     *
+     * @example
+     * const result = analyzeImage(imageObject, "facade");
+     * console.log(result);
+     * // Output: {
+     * //   constructionActivity: "facade",
+     * //   stageOfConstruction: "facade",
+     * //   percentageOfCompletion: 75
+     * // }
+     */
 function analyzeImage(image, infrastructureType) {
     // Mock function for image analysis
     const completionMapping = {
@@ -105,6 +132,25 @@ function analyzeImage(image, infrastructureType) {
     };
 }
 
+/**
+     * Calculates the average completion percentage across all buildings.
+     *
+     * This function sums up all the completion percentages stored in the 
+     * `completionPercentages` array and divides the total by the number of 
+     * entries to find the average. The result is formatted to two decimal 
+     * places.
+     *
+     * @returns {string} The average completion percentage formatted to two 
+     * decimal places.
+     *
+     * @throws {Error} Throws an error if `completionPercentages` is not an 
+     * array or if it is empty.
+     *
+     * @example
+     * // Assuming completionPercentages is [80, 90, 100]
+     * const average = calculateTotalPercentageOfCompletion();
+     * console.log(average); // Output: "90.00"
+     */
 function calculateTotalPercentageOfCompletion() {
     // Calculate the average completion percentage across all buildings
     const total = completionPercentages.reduce((sum, current) => sum + current, 0);
